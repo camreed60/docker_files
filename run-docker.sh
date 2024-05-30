@@ -4,6 +4,9 @@
 
 set -e
 
+#USB port
+USB=ttyUSB0
+
 # Set X display variables
 set_x_display() {
     MOUNT_X="-e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix"
@@ -12,7 +15,9 @@ set_x_display() {
 
 # Set devices variables
 set_devices() {
-    ARDUINO="--device=/dev/ttyUSB0"
+    if [ -f /dev/${USB} ]; then
+        ARDUINO="--device=/dev/${USB}" ;
+    fi
 }
 
 # Main script execution
