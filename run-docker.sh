@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2086,SC2124
+# base code found at: https://github.com/autowarefoundation/autoware/blob/main/docker/run.sh
 
 set -e
 
