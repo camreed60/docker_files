@@ -1,0 +1,16 @@
+services:
+  zed:
+    build:
+      dockerfile: ./Dockerfile.u22-cu117-humble-release
+    command: ros2 launch zed_wrapper zed_camera.launch.py camera_model:=zed2
+    runtime: nvidia
+    privileged: true
+    volumes:
+      - /dev:/dev
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
