@@ -3,6 +3,10 @@ ARG IMAGE_NAME=nvcr.io/nvidia/cuda:11.7.1-devel-ubuntu22.04
 
 FROM ${IMAGE_NAME}
 
+COPY ./fastrtps-profile.xml /
+ENV FASTRTPS_DEFAULT_PROFILES_FILE=/fastrtps-profile.xml
+
+
 ARG UBUNTU_RELEASE_YEAR=22
 ARG CUDA_MAJOR=11
 ARG CUDA_MINOR=7

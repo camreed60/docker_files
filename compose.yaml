@@ -3,8 +3,13 @@ services:
     build:
       dockerfile: ./Dockerfile.u22-cu117-humble-release
     command: ros2 launch zed_wrapper zed_camera.launch.py camera_model:=zed2
+    environment:
+      - ROS_DOMAIN_ID=2
     runtime: nvidia
     privileged: true
+    network_mode: host
+    ipc: host
+    user: 0:0
     volumes:
       - /dev:/dev
     deploy:
@@ -14,3 +19,22 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
+  rviz:
+    build:
+      dockerfile: ./Dockerfile.ros-desktop
+    command: rviz2
+    network_mode: host
+    ipc: host
+    runtime: nvidia
+    user: 0:0
+    volumes:
+      - /dev:/dev
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./rosbot_pro.rviz:/root/.rviz2/default.rviz
+    environment:
+      - ROS_DOMAIN_ID=2
+      - DISPLAY
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    depends_on:
+      - zed
