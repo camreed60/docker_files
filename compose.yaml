@@ -1,7 +1,7 @@
 services:
-  zed:
+  zed-ros2-wrapper:
     build:
-      dockerfile: ./Dockerfile.u22-cu117-humble-release
+      dockerfile: ./Dockerfile.zed-ros2-wrapper
     command: ros2 launch zed_wrapper zed_camera.launch.py camera_model:=zed2
     environment:
       - ROS_DOMAIN_ID=2
@@ -19,9 +19,9 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-  rviz:
+  ai-navigation:
     build:
-      dockerfile: ./Dockerfile.ros-desktop
+      dockerfile: ./Dockerfile.ai-navigation
     command: rviz2
     network_mode: host
     ipc: host
@@ -36,5 +36,3 @@ services:
       - DISPLAY
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
-    depends_on:
-      - zed
