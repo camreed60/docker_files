@@ -2,14 +2,10 @@ services:
   zed-ros2-wrapper:
     build:
       dockerfile: ./Dockerfile.zed-ros2-wrapper
-    command: ros2 launch zed_wrapper zed_camera.launch.py camera_model:=zed2
-    environment:
-      - ROS_DOMAIN_ID=2
     runtime: nvidia
     privileged: true
     network_mode: host
     ipc: host
-    user: 0:0
     volumes:
       - /dev:/dev
     deploy:
@@ -25,14 +21,13 @@ services:
     command: rviz2
     network_mode: host
     ipc: host
-    runtime: nvidia
-    user: 0:0
     volumes:
-      - /dev:/dev
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./rosbot_pro.rviz:/root/.rviz2/default.rviz
     environment:
-      - ROS_DOMAIN_ID=2
       - DISPLAY
-      - NVIDIA_VISIBLE_DEVICES=all
-      - NVIDIA_DRIVER_CAPABILITIES=all
+  velodyne:
+    build:
+      dockerfile: ./Dockerfile.velodyne
+    network_mode: host
+    ipc: host
+

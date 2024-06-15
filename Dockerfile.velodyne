@@ -1,0 +1,4 @@
+FROM ros:humble
+RUN apt-get update
+RUN apt-get -y install ros-humble-velodyne
+CMD ros2 launch velodyne velodyne-all-nodes-VLP16-launch.py
