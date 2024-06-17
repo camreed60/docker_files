@@ -22,6 +22,7 @@ services:
     network_mode: host
     ipc: host
     volumes:
+      - /dev:/dev
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     environment:
       - DISPLAY
@@ -30,4 +31,7 @@ services:
       dockerfile: ./Dockerfile.velodyne
     network_mode: host
     ipc: host
-
+  lidar_localization_ros2:
+    build:
+      dockerfile: ./Dockerfile.lidar_localization_ros2
+        

@@ -1,0 +1,16 @@
+FROM ros:humble
+ENV ROS_DISTRO humble
+WORKDIR /root/ros2_ws/src
+RUN git clone https://github.com/rsasaki0109/lidar_localization_ros2.git
+RUN git clone https://github.com/rsasaki0109/ndt_omp_ros2.git
+WORKDIR /root/ros2_ws
+RUN /bin/bash -c "source /opt/ros/humble/setup.bash && \
+  apt-get update -y || true && \
+  rosdep install --from-paths src --ignore-src -r -y && \
+  colcon build --symlink-install "
+# Setup environment variables
+COPY ros_entrypoint.sh /sbin/ros_entrypoint.sh
+RUN sudo chmod 755 /sbin/ros_entrypoint.sh
+
+ENTRYPOINT ["/sbin/ros_entrypoint.sh"]
+CMD ros2 launch lidar_localization_ros2 lidar_localization.launch.py
