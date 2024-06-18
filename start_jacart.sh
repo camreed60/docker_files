@@ -8,7 +8,7 @@ if [ -z "${VELODYNE_IFNAME}" ]; then
   return
 fi
 # install Nvidia Container Toolkit
-source ./install_container_toolkit
+source ./install_container_toolkit.sh
 # do this to see gui applications (rviz2) from docker
 # <<<<<< sudo xhost local:root
 # assign static ip to recieve velodyne data. For more information see page 23, 4.2.1 Network Setup in Isolation of the Velodyne Puck (VLP-16) User Manual (https://velodynelidar.com/wp-content/uploads/2019/12/63-9243-Rev-E-VLP-16-User-Manual.pdf).

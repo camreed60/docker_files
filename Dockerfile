@@ -79,3 +79,8 @@ ENV NVIDIA_VISIBLE_DEVICES \
     ${NVIDIA_VISIBLE_DEVICES:-all}
 ENV NVIDIA_DRIVER_CAPABILITIES \
     ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics,compute,video,utility
+# setup entrypoint
+COPY ros_entrypoint.sh /sbin/ros_entrypoint.sh
+RUN sudo chmod 755 /sbin/ros_entrypoint.sh
+
+ENTRYPOINT ["/sbin/ros_entrypoint.sh"]k
