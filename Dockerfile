@@ -67,7 +67,7 @@ RUN /bin/bash -c "source /opt/ros/humble/setup.bash && \
 RUN . /opt/ros/humble/setup.sh \
     && apt-get update \
     && apt-get install -y python3-pip \
-    && pip install transforms3d \
+    && pip3 install 'transforms3d==0.4.1'\
     && apt-get install ros-humble-tf-transformations \
     && apt install -y xauth \
     && apt-get -y install tmux \
