@@ -8,4 +8,4 @@ Dockerfile and scripts for complete setup and operation of a JACart.
 4. clone files from this repo
 
 # Set Up
-Run `source ./init_jacart` from main directory of this repo
+Run `source ./init_jacart.sh` from main directory of this repo
