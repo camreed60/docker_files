@@ -3,12 +3,8 @@ set -e
 
 # setup ros2 environment
 source "/opt/ros/humble/setup.bash" --
-source "/root/ros2_ws/install/local_setup.bash" --
+source "/dev_ws/install/local_setup.bash" --
 
-# Welcome information
-echo "JACart Docker Image"
-echo "---------------------"  
-echo "Available Packages:"
-ros2 pkg list
-echo "---------------------"    
+# take in command line input and execute
+echo "Successfully started JACart container. You can run a ros2 launch here."
 exec "$@"
