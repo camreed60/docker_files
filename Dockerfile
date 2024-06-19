@@ -44,7 +44,7 @@ RUN sh zed-sdk.run -- silent skip_tools skip_cuda
 WORKDIR /dev_ws/src
 RUN git clone https://github.com/rsasaki0109/lidar_localization_ros2.git
 RUN git clone https://github.com/rsasaki0109/ndt_omp_ros2.git
-RUN git clone https://github.com/JACart2/ai-navigation.git
+RUN git clone --branch docker-fixes https://github.com/JACart2/ai-navigation.git
 RUN git clone --recursive --depth 1 --branch humble-v4.0.8 https://github.com/stereolabs/zed-ros2-wrapper.git 
 RUN apt-get update
 RUN apt-get -y install ros-humble-velodyne
