@@ -23,6 +23,7 @@ sudo docker run --rm -it\
 	-v $XSOCK:$XSOCK \
 	-v $HOME/.Xauthority:/root/.Xauthority \
 	-v /dev:/dev \
+	-v /home/jacart2/dev_ws/src/maps:/dev_ws/src/maps \
 	--privileged \
 	--net=host \
 	--name $CONTAINER_NAME \
