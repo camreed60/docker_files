@@ -2,6 +2,16 @@
 IMAGE_NAME=jacart
 CONTAINER_NAME=jacart
 
+# install nvidia drivers
+if nvidia-smi --version
+then
+	echo "Nvidia drivers we're found."
+else
+	sudo apt-get install -y cuda-drivers
+	echo "-------------------------------------------------------"
+	echo "Since new drivers needed to be installed you may need to restart the host before everything will work..."
+	sleep 20
+fi
 # install docker
 source ./install_docker.sh
 
