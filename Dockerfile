@@ -50,6 +50,10 @@ RUN git clone https://github.com/stereolabs/zed-ros2-examples.git
 RUN apt-get update
 RUN apt-get -y install ros-humble-velodyne
 WORKDIR /dev_ws/
+
+# Install rosbridge so ui can communicate with ros
+RUN apt-get install -y ros-humble-rosbridge-server
+
 # Initialize rosdep
 RUN rosdep init && rosdep update
 
