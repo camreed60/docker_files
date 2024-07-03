@@ -1,7 +1,7 @@
 # SOURCE: https://docs.docker.com/engine/install/ubuntu/
 # --------------------------------------------------------------------------------------------------
 
-if docker -v | grep "fsdfdsfsd"
+if docker -v 
 then
 	echo "INFO: Docker already installed. Skipping installation."
 else
