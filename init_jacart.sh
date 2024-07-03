@@ -24,7 +24,6 @@ sudo docker run --rm -it\
 	-v $HOME/.Xauthority:/root/.Xauthority \
 	-v /dev:/dev \
 	-v $HOME/dev_ws/src/maps:/dev_ws/src/maps \
-	-v $HOME/dev_ws/rosbag2_2024_06_05-10_56_12:/rosbag \
 	--privileged \
 	--net=host \
 	--name $CONTAINER_NAME \
