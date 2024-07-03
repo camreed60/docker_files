@@ -18,9 +18,9 @@ else
 
 	if [[ "$(. /etc/os-release && echo "$ID")" -eq "linuxmint" ]]
 	then
-		v="$UBUNTU_CODENAME"    
+		v="$(. /etc/os-release && echo "$UBUNTU_CODENAME")"
 	else
-		v="$VERSION_CODENAME"
+		v="$(. /etc/os-release && echo "$VERSION_CODENAME")"
 	fi
 	echo "------------------------------"
 	echo $v
