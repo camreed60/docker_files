@@ -14,5 +14,5 @@ RUN git clone https://github.com/JACart2/ui.git
 WORKDIR /ui
 RUN npm install
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entry.sh
-ENTRYPOINT ["/bin/bash","/entry.sh"]
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/bin/bash","/entrypoint.sh"]
