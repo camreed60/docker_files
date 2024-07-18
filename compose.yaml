@@ -26,4 +26,6 @@ services:
     command: npm run dev
     network_mode: "host"
     volumes:
+      - $HOME/.ssh:/root/.ssh
       - ui:/ui
+      - $HOME/.gitconfig:/root/.gitconfig
