@@ -7,9 +7,11 @@ services:
     build:
       context: ./services/backend/
       dockerfile: ./Dockerfile
-        #    command: ros2 launch cart_launch autonomous_cart_launch.launch.py
-    command: ros2 launch navigation sim_nav.launch.py
+    command: ros2 launch cart_launch autonomous_cart_launch.launch.py
+      # command: ros2 launch navigation sim_nav.launch.py
     environment:
+      - $HOME/.ssh:/root/.ssh
+      - $HOME/.gitconfig:/root/.gitconfig
       - DISPLAY
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
@@ -27,5 +29,5 @@ services:
     network_mode: "host"
     volumes:
       - $HOME/.ssh:/root/.ssh
-      - ui:/ui
       - $HOME/.gitconfig:/root/.gitconfig
+      - ui:/ui
