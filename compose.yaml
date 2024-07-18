@@ -1,0 +1,29 @@
+volumes:
+  dev_ws:
+  ui:
+
+services:
+  backend:
+    build:
+      context: ./services/backend/
+      dockerfile: ./services/backend/dockerfile
+        #    command: ros2 launch cart_launch autonomous_cart_launch.launch.py
+    command: ros2 launch navigation sim_nav.launch.py
+    environment:
+      - DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:/root/.Xauthority
+      - /dev:/dev
+      - dev_ws:/dev_ws
+    privileged: true
+    runtime: nvidia
+    network_mode: "host"
+  frontend:
+    build:
+      context: ./services/frontend/
+      dockerfile: ./services/frontend/dockerfile
+    command: npm run dev
+    network_mode: "host"
+    volumes:
+      - ui:/ui

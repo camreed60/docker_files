@@ -3,9 +3,8 @@ Dockerfile and scripts for complete setup and operation of a JACart.
 
 # Prerequisites
 1. x86_64 unix system
-2. graphics card that supports nvidia CUDA
-3. [install docker engine](https://docs.docker.com/engine/install/)
-4. clone files from this repo
+1. graphics card that supports nvidia CUDA
+1. clone files from this repo
 
 # Set Up
-Run `source ./init_jacart.sh` from main directory of this repo
+Run `source ./run.sh` from main directory of this repo
