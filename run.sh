@@ -9,11 +9,6 @@ sudo xhost local:root
 sudo ip addr add 192.168.1.254/24 dev $(nmcli device status | awk '$2 == "ethernet" {print $1}') 
 
 
-
-
-# create and run containers
-sudo docker compose build 
-
 #!/bin/bash
 
 # Create a new session named 'jacart_main'
@@ -22,14 +17,11 @@ tmux new-session -d -s jacart_main
 # Rename the first window
 tmux rename-window -t jacart_main:0 'Main'
 
-# Split the window vertically (pane 1 on the left, pane 2 on the right)
-tmux split-window -h
-
 # Send commands to each pane
-tmux send-keys -t jacart_main:0.0 'docker compose up' C-m 
-tmux send-keys -t jacart_main:0.1 'docker compose exec backend bash' C-m
-tmux send-keys -t jacart_main:0.1 'ros2 launch rosbridge_server rosbridge_websocket_launch.xml' C-m
+tmux send-keys -t jacart_main:0.0 'docker compose up --force-recreate' C-m 
+
 tmux new-window
+sleep 5
 tmux send-keys -t jacart_main:1.0 'open http://localhost:5173 && exit' C-m
 
 # Attach to the session
