@@ -17,7 +17,7 @@ tmux new-session -d -s jacart_main
 # Rename the first window
 tmux rename-window -t jacart_main:0 'Main'
 
-tmux split-window -v
+tmux split-window -h
 
 # Send commands to each pane
 tmux send-keys -t jacart_main:0.0 'docker compose run backend' C-m 
