@@ -18,7 +18,7 @@ tmux new-session -d -s jacart_main
 tmux rename-window -t jacart_main:0 'Main'
 
 # Send commands to each pane
-tmux send-keys -t jacart_main:0.0 'docker compose up --force-recreate' C-m 
+tmux send-keys -t jacart_main:0.0 'docker compose up --force-recreate --build' C-m 
 
 tmux new-window
 sleep 5
