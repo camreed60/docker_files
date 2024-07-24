@@ -2,6 +2,7 @@ FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get upgrade
 RUN apt-get update && apt-get install -y wget
 RUN wget -O /tmp/nodesource_setup.sh https://deb.nodesource.com/setup_22.x 
 RUN bash /tmp/nodesource_setup.sh

@@ -2,7 +2,7 @@
 # PURPOSE: Setup Nvidia Container Toolkit so containers can use the nvidia resources such as CUDA. Might be used for something like zed camera object detection.
 # --------------------------------------------------------------------------------------------------
 
-if sudo docker info | grep -q Runtimes:.*nvidia
+if docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 then
 	echo "INFO: Skipping Nvidia Container Toolkit install because docker nvidia runtime already exists."
 else
