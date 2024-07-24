@@ -9,7 +9,7 @@ sudo xhost local:root
 sudo ip addr add 192.168.1.254/24 dev $(nmcli device status | awk '$2 == "ethernet" {print $1}') 
 
 
-#!/bin/bash
+docker compose build
 
 # Create a new session named 'jacart_main'
 tmux new-session -d -s jacart_main
@@ -17,8 +17,12 @@ tmux new-session -d -s jacart_main
 # Rename the first window
 tmux rename-window -t jacart_main:0 'Main'
 
+tmux split-window -v
+
 # Send commands to each pane
-tmux send-keys -t jacart_main:0.0 'docker compose up --force-recreate --build' C-m 
+tmux send-keys -t jacart_main:0.0 'docker compose run backend' C-m 
+tmux send-keys -t jacart_main:0.1 'docker compose run frontend' C-m
+
 
 tmux new-window
 sleep 5
