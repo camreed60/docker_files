@@ -92,4 +92,8 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 COPY entrypoint.sh /entrypoint.sh
 RUN sudo chmod 755 /entrypoint.sh
 
+
+# install neovim for development in container
+RUN apt-get install -y neovim
+
 ENTRYPOINT ["/entrypoint.sh"]
