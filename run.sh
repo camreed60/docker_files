@@ -20,8 +20,8 @@ tmux rename-window -t jacart_main:0 'Main'
 tmux split-window -h
 
 # Send commands to each pane
-tmux send-keys -t jacart_main:0.0 'docker compose run backend' C-m 
-tmux send-keys -t jacart_main:0.1 'docker compose run frontend' C-m
+tmux send-keys -t jacart_main:0.0 'docker compose run --remove-orphans backend' C-m 
+tmux send-keys -t jacart_main:0.1 'docker compose run --remove-orphans frontend' C-m
 
 
 tmux new-window
