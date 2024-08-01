@@ -72,10 +72,11 @@ RUN /bin/bash -c "source /opt/ros/humble/setup.bash && \
 
 
 # Can these dependencies below be defined in the respective packages package.xml and then installed with rosdep?
+#why transforms3d==0.4.1? on 06/17/2024 0.4.2 was released and caused issues. More specifically when running ros nodes "Please install transforms3d by hand" was outputed but doing so didn't fix anything.
 RUN . /opt/ros/humble/setup.sh \
     && apt-get update \
     && apt-get install -y python3-pip \
-    && pip3 install 'transforms3d==0.4.1' \ #why transforms3d==0.4.1? on 06/17/2024 0.4.2 was released and caused issues. More specifically when running ros nodes "Please install transforms3d by hand" was outputed but doing so didn't fix anything.
+    && pip3 install 'transforms3d==0.4.1' \
     && apt-get install ros-humble-tf-transformations \
     && apt install -y xauth \
     && apt-get -y install tmux \
