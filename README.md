@@ -12,14 +12,12 @@ First clone this repo.
 
 ## Required Dependencies
 
-`bash ./require/all.sh` will
-
 1. [Install Nvidia Cuda Drivers](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
-
 1. [Install Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
+1. [Manage Docker as non-root](https://docs.docker.com/engine/install/linux-postinstall/)
 1. [Install NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
-However, consider doing this manually.
+An attempt was made to write scripts to do this manually (still in the ./require directory). It would be nice if somone could get that working.
 
 # Running
 `bash ./run.sh` will run everything for full operation of the cart including initializing the host. This does the steps below for you. This not praticial for development use.
