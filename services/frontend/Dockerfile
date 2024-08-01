@@ -6,7 +6,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y wget
 RUN wget -O /tmp/nodesource_setup.sh https://deb.nodesource.com/setup_22.x 
 RUN bash /tmp/nodesource_setup.sh
-RUN apt-get install -y nodejs git
+RUN apt-get install -y nodejs
+
+# installs for development
+RUN apt-get install -y neovim tmux
 
 # get source code
 WORKDIR /
