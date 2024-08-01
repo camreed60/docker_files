@@ -7,7 +7,7 @@ services:
     build:
       context: ./services/backend/
       dockerfile: ./Dockerfile
-    command: ros2 launch cart_launch autonomous_launcher.launch.py #can be overriden with #BACKEND_COMMAND
+    command: ros2 launch cart_launch autonomous_launcher.launch.py #can be overriden with $BACKEND_COMMAND
     environment:
       - BACKEND_COMMAND #will override the default command above
       - $HOME/.ssh:/root/.ssh
@@ -25,7 +25,7 @@ services:
     build:
       context: ./services/frontend/
       dockerfile: ./Dockerfile
-    command: npm run dev #can be overriden with #FRONTEND_COMMAND
+    command: npm run dev #can be overriden with $FRONTEND_COMMAND
     environment:
       - FRONTEND_COMMAND #will override the default command above
     network_mode: "host"
