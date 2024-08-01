@@ -1,9 +1,4 @@
 #!/bin/bash
-
-# install requirements and initalization for host
-bash ./require/all.sh
-bash ./initialize_host.sh
-
 open_browser_when_ready () {
 	until curl -s http://localhost:5173 > /dev/null
 	do

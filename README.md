@@ -1,39 +1,36 @@
 # docker_files
 Dockerfile and scripts for complete setup and operation of a JACart.
 
-# Required Hardware
+# Required Hardware/Software
 1. x86_64 unix system
 1. graphics card that supports nvidia CUDA
+1. Linux Mint 21.3 or Ubuntu 22.04 (other distributions haven't been tested, and installation scripts wouldn't work on them).
+
+# Quick Start
+
+`bash ./quick_start.sh` will install and run everything. This may be all you need.
 
 # Installation
 
-## Convience Script
-Convience script `source ./require/all.sh`. Tested on Linux Mint 21/Ubuntu 22.04. Don't rely on this working for other distributions.
+## Required Dependencies
 
-## Prerequite Depedencies.
+`bash ./require/all.sh` will install these dependencies.
 
-1. Nvidia Cuda Drivers
-1. Docker Engine
-1. Nvidia Container Toolkit
+1. [Install Nvidia Cuda Drivers](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
+
+1. [Install Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
+1. [Install NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+
+## Initialize Host
+
+`bash ./initialize_host` will do this for you.
+
+1. Assign static IP of **192.168.1.254/24** to establish connection with Velodyne Lidar.
+1. Allow the docker containers to access the host's X server.
 
 # Running
+`bash ./run.sh` will run everything for full operation of the cart. Not praticial for development use.
 
-## Convienence Script
-Run `source ./run.sh` from main directory of this repo will run everything for full operation of the cart. Not praticial for development use.
-
-## Manual Running
-
-### Docker Compose Services
-There are two services that build and run isolated enviroments with all the necessary depedenceies. These can be found in the `/services` directory. These are:
-1. frontend: the user iterface that the passanger uses to select destinations and observe the route the cart has planned.
-1. backend: everything else (except arduino code) which includes localization, velodyne drivers, zed camera packages, ros bridge for communicating with the ui, the simulator, and more
-
-### Running The Services Individually
-If the container isn't already running `docker compose run --rm -it backend bash` will open a terminal for the backend. Its recommended to first run `docker run --help` to see what each flag does. Switch out `backend` with `frontend` to do the same for the front end.
-
-If the container is already running, use `docker compose exec <service name> <command>` instead.
-
-Also it might be usefull to take a look at `docker compose up --help`.
 
 
 
