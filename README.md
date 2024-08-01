@@ -33,9 +33,23 @@ However, consider doing this manually.
 
 ## Docker Compose
 
-`docker compose up` starts the frontend (user interface) and backend (all ros2 nodes & rviz2) services. Refer to [./compose.yaml](./compose.yaml) and ["How Compose works"](https://docs.docker.com/compose/compose-application-model/). 
+`docker compose up` starts the frontend (user interface) and backend (all ros2 nodes & rviz2) services. Refer to [./compose.yaml](./compose.yaml) and ["How Compose works"](https://docs.docker.com/compose/compose-application-model/).
 
 # Development
+
+`bash ./dev-run.sh` will create the containers but override the entry commands so they don't start anything. You should run this before using any of the options below.
+
+## VSCode
+
+Install the [VSCode Devcontainers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). This will enable you to code inside the containers. If you create the containers and open the remote explorer tab in VSCode you should see the frontend and backend containers. Here is what it looks like:
+
+[todo: insert image here later]
+
+Once you open the container in vscode, opening a terminal (through VSCode) will also give you access to the development container.
+
+
+## TMUX (maybe to use `nvim` or `nano`)
+`docker compose run <backend/frontend> tmux` will run `tmux` in a container. Use `exit` to close it.
 
 
 
