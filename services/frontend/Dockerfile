@@ -9,7 +9,7 @@ RUN bash /tmp/nodesource_setup.sh
 RUN apt-get install -y nodejs
 
 # installs for development
-RUN apt-get install -y neovim tmux
+RUN apt-get install -y neovim tmux git
 
 # get source code
 WORKDIR /
