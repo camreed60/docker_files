@@ -43,7 +43,7 @@ However, consider doing this manually.
 
 Install the [VSCode Devcontainers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). This will enable you to code inside the containers. If you create the containers and open the remote explorer tab in VSCode you should see the frontend and backend containers. Here is what it looks like:
 
-[todo: insert image here later]
+![devcontainers](https://github.com/user-attachments/assets/f1954457-1171-4320-a687-2cc7833905c9)
 
 Once you open the container in vscode, opening a terminal (through VSCode) will also give you access to the development container.
 
