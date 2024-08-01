@@ -17,7 +17,7 @@ First clone this repo.
 1. [Manage Docker as non-root](https://docs.docker.com/engine/install/linux-postinstall/)
 1. [Install NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
-An attempt was made to write scripts to do this manually (still in the ./require directory). It would be nice if somone could get that working.
+An attempt was made to write scripts to do this for you (still in the ./require directory). It would be nice if somone could get that working.
 
 # Running
 `bash ./run.sh` will run everything for full operation of the cart including initializing the host. This does the steps below for you. This not praticial for development use.
